@@ -43,7 +43,7 @@ def runMenu(lista):
         elif optiune == "2":
             lista = uiStergeRezervare(lista)
         elif optiune == "3":
-            uiModificaRezervare(lista)
+            lista = uiModificaRezervare(lista)
         elif optiune == "a":
             showAll(lista)
         elif optiune == "x":
