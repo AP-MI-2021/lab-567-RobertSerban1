@@ -30,7 +30,7 @@ def getCheckin(avion):
     return avion[4][1]
 
 def toString(avion):
-    return "id: {}, nume: {}, clasa: {}, pret: {}, checkin:{}".format(
+    return "id: {}, nume: {}, clasa: {}, pret: {}, checkin: {}".format(
         getId(avion),
         getNume(avion),
         getClasa(avion),

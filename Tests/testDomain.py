@@ -9,3 +9,4 @@ def testRezervare():
     assert getClasa(avion) == "economy"
     assert getPret(avion) == 100
     assert getCheckin(avion) == "da"
+

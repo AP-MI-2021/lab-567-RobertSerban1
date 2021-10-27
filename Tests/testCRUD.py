@@ -34,3 +34,10 @@ def test_modifica_rezervare():
     assert getPret(rezervare_update) == 150
     assert getCheckin(rezervare_update) == "nu"
 
+def test_getbyId():
+    lista = []
+    lista = adauga_rezervare("1", "Ionescu", "economy", 100, "da", lista)
+    lista = adauga_rezervare("2", "Popescu", "business", 300, "nu", lista)
+
+    assert getbyId("1", lista) == [("id", "1"), ("nume", "Ionescu"), ("clasa", "economy"), ("pret", 100), ("checkin", "da")]
+    assert getbyId("3", lista) is None
