@@ -35,5 +35,5 @@ def toString(avion):
         getNume(avion),
         getClasa(avion),
         getPret(avion),
-        getCheckin(avion)
+        getCheckin(avion),
     )

@@ -14,13 +14,17 @@ def mutare_la_clasa_superioara(nume, lista):
     return lista_noua
 
 def ieftinire_procentaj(procentaj, lista):
+    procentaj_str = str(procentaj)
+    if procentaj_str.isdigit() is False and procentaj < 0:
+        raise ValueError("Nu ati introdus o valoare valida!")
     rez = []
     for avion in lista:
         if getCheckin(avion) == "da":
             pret = getPret(avion)
-            pret = pret - (procentaj / 100 * pret)
+            pret -= procentaj // 100 * pret
             avion[3] = pret
-
+        rez.append(avion)
+    return rez
 def cel_mai_mare_pret_pentru_clase(lista):
     rezultat = {}
     for avion in lista:
