@@ -5,7 +5,7 @@ from UI.console import runMenu
 
 def main():
     runAllTests()
-    lista =[]
+    lista = []
 
     runMenu(lista)
 main()
