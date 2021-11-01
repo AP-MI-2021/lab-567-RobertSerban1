@@ -5,12 +5,12 @@ from Logic.functionalitati import ordonare_rezervari_descresc, mutare_la_clasa_s
 
 def test_mutare_la_clasa_superioara():
     lista = []
-    lista = adauga_rezervare("1", "Robert", "economy ", 100, "da", lista)
+    lista = adauga_rezervare("1", "Robert", "economy", 100, "da", lista)
     lista = adauga_rezervare("2", "Robert", "economy plus", 450, "nu", lista)
     lista = adauga_rezervare("3", "Robert", "business", 600, "da", lista)
     rezultat = mutare_la_clasa_superioara("Robert", lista)
     assert getClasa(getbyId("1", rezultat)) == "economy plus"
-    assert getClasa(getbId("1", rezultat)) == "business"
+    assert getClasa(getbyId("2", rezultat)) == "business"
     assert getClasa(getbyId("3", rezultat)) == "business"
 
 def test_ieftinire_procentaj():

@@ -12,6 +12,7 @@ def mutare_la_clasa_superioara(nume, lista):
                 avion[2] = "business"
         lista_noua.append(avion)
     return lista_noua
+
 def ieftinire_procentaj(procentaj, lista):
     rez = []
     for avion in lista:
