@@ -4,8 +4,7 @@ from UI.console import runMenu
 
 
 def main():
-    runAllTests()
     lista = []
-
+    runAllTests()
     runMenu(lista)
 main()

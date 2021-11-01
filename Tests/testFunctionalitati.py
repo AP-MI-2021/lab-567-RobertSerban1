@@ -1,6 +1,6 @@
-from Domain.avion import getId, getClasa
+from Domain.avion import getId, getClasa, getPret
 from Logic.CRUD import adauga_rezervare, getbyId
-from Logic.functionalitati import ordonare_rezervari_descresc, mutare_la_clasa_superioara
+from Logic.functionalitati import ordonare_rezervari_descresc, mutare_la_clasa_superioara, ieftinire_procentaj
 
 
 def test_mutare_la_clasa_superioara():
