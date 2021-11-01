@@ -1,6 +1,6 @@
 from Domain.avion import getId, getClasa, getPret
 from Logic.CRUD import adauga_rezervare, getbyId
-from Logic.functionalitati import ordonare_rezervari_descresc, mutare_la_clasa_superioara, ieftinire_procentaj
+from Logic.functionalitati import ordonare_rezervari_descresc, mutare_la_clasa_superioara, ieftinire_procentaj, cel_mai_mare_pret_pentru_clase
 
 
 def test_mutare_la_clasa_superioara():
@@ -15,14 +15,15 @@ def test_mutare_la_clasa_superioara():
 
 def test_ieftinire_procentaj():
     lista = []
-    lista = adauga_rezervare("1", "Robert", "economy", 100, "da", lista)
-    lista = adauga_rezervare("2", "Robert", "economy plus", 400, "nu", lista)
-    lista = adauga_rezervare("3", "Robert", "business", 600, "da", lista)
-    rezultat = ieftinire_procentaj(50, lista)
-    assert getPret(getbyId("1", rezultat)) == 50
-    assert getPret(getbyId("2", rezultat)) == 200
-    assert getPret(getbyId("3", rezultat)) == 300
-
+    lista = adauga_rezervare("1", "Albert", "economy", 40.0, "da", lista)
+    lista = adauga_rezervare("2", "Robert", "economy plus", 45.0, "nu", lista)
+    lista = adauga_rezervare("3", "Andrei", "business", 60.0, "da", lista)
+    lista = adauga_rezervare("4", "Cristian", "business", 60.0, "nu", lista)
+    lista_noua = ieftinire_procentaj(20, lista)
+    assert getPret(getbyId("1", lista_noua)) == 32.0
+    assert getPret(getbyId("2", lista_noua)) == 45.0
+    assert getPret(getbyId("3", lista_noua)) == 48.0
+    assert getPret(getbyId("4", lista_noua)) == 60.0
 def test_ordonare_rezervari_descresc():
     lista = []
     lista = adauga_rezervare("1", "Ionescu", "economy", 200, "da", lista)
