@@ -21,7 +21,7 @@ def ui_adaugare_rezervare(lista):
         id = input("Dati id-ul: ")
         nume = input("Dati numele: ")
         clasa = input("Dati clasa: ")
-        pret = input("Dati pretul: ")
+        pret = float(input("Dati pretul: "))
         checkin = input("Dati checkin-ul: ")
         return adauga_rezervare(id, nume, clasa, pret, checkin, lista)
     except ValueError as ve:
@@ -41,7 +41,7 @@ def uiModificaRezervare(lista):
         id = input("Dati id-ul rezervarii de modificat: ")
         nume = input("Dati noul nume: ")
         clasa = input("Dati noua clasa: ")
-        pret = input("Dati noul pret: ")
+        pret = float(input("Dati noul pret: "))
         checkin = input("Dati noul checkin: ")
         if clasa != "economy" and clasa != "economy plus" and clasa != "business":
             print("Eroare: Nu ati introdus o clasa valida!")
