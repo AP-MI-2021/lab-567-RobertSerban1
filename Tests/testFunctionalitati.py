@@ -36,7 +36,7 @@ def test_cel_mai_mare_pret_pentru_clase():
     lista = []
     lista = adauga_rezervare("1", "Ion", "economy", 500, "da", lista)
     lista = adauga_rezervare("2", "George", "economy", 400, "da", lista)
-    lista = adauga_rezervare("3", "Ionut", "economy plus ", 600, "nu", lista)
+    lista = adauga_rezervare("3", "Ionut", "economy plus", 600, "nu", lista)
     rezultat = cel_mai_mare_pret_pentru_clase(lista)
     assert rezultat["economy"] == 500
     assert rezultat["economy plus"] == 600

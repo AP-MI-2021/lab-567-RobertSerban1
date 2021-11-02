@@ -57,7 +57,7 @@ def showAll(lista):
 def uiCelMaiMarePret(lista):
     rezultat = cel_mai_mare_pret_pentru_clase(lista)
     for i in rezultat:
-        print("Pentru clasa {}, pretul maxim este{}".format(i, rezultat[i]))
+        print("Pentru clasa {}, pretul maxim este {}".format(i, rezultat[i]))
 
 def uiOrdonareRezervari(lista):
     showAll(ordonare_rezervari_descresc(lista))

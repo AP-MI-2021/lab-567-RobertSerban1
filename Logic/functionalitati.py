@@ -16,8 +16,8 @@ def ieftinire_procentaj(percent, lista):
     lista_noua = []
     for avion in lista:
         if getCheckin(avion) == "da":
-            price = getPret(avion)
-            price -= percent / 100 * price
+            price = int(getPret(avion))
+            price = int(price - int(percent) / 100 * price)
             avion[3] = price
         lista_noua.append(avion)
     return lista_noua
@@ -38,7 +38,7 @@ def cel_mai_mare_pret_pentru_clase(lista):
 def ordonare_rezervari_descresc(lista):
     for avion in lista:
         pret = getPret(avion)
-        return sorted(lista, key = lambda avion : getPret(avion), reverse = True)
+    return sorted(lista, key = lambda avion : getPret(avion), reverse = True)
 
 
 
