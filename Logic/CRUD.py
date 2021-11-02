@@ -16,7 +16,7 @@ def adauga_rezervare(id, nume, clasa, pret, checkin, lista):
     return lista + [avion]
 
 def getbyId(id, lista):
-   """
+    """
     ia rezervarea cu id-ul dat dintr-o lista
     :param id: string
     :param lista: lista de rezervari

@@ -19,7 +19,7 @@ def ieftinire_procentaj(percent, lista):
             price = getPret(avion)
             price -= percent / 100 * price
             avion[3] = price
-        lista_noua.append(rezervare)
+        lista_noua.append(avion)
     return lista_noua
 
 
