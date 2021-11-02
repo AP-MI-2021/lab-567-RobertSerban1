@@ -31,8 +31,8 @@ def cel_mai_mare_pret_pentru_clase(lista):
         if clasa in rezultat:
             if pret > rezultat[clasa]:
                 rezultat[clasa] = pret
-            else:
-                rezultat[clasa] = pret
+        else:
+             rezultat[clasa] = pret
     return rezultat
 
 def ordonare_rezervari_descresc(lista):
