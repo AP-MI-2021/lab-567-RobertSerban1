@@ -1,6 +1,4 @@
 from Domain.avion import getClasa, getCheckin, getPret, getNume
-from Logic.CRUD import adauga_rezervare
-
 
 def mutare_la_clasa_superioara(nume, lista):
     lista_noua = []
@@ -13,18 +11,18 @@ def mutare_la_clasa_superioara(nume, lista):
         lista_noua.append(avion)
     return lista_noua
 
-def ieftinire_procentaj(procentaj, lista):
-    procentaj_str = str(procentaj)
-    if procentaj_str.isdigit() is False and procentaj < 0:
-        raise ValueError("Nu ati introdus o valoare valida!")
-    rez = []
+
+def ieftinire_procentaj(percent, lista):
+    lista_noua = []
     for avion in lista:
         if getCheckin(avion) == "da":
-            pret = getPret(avion)
-            pret -= procentaj // 100 * pret
-            avion[3] = pret
-        rez.append(avion)
-    return rez
+            price = getPret(avion)
+            price -= percent / 100 * price
+            avion[3] = price
+        lista_noua.append(rezervare)
+    return lista_noua
+
+
 def cel_mai_mare_pret_pentru_clase(lista):
     rezultat = {}
     for avion in lista:

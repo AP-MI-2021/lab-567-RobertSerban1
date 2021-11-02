@@ -6,7 +6,7 @@ def creeaza_zbor_avion(id, nume, clasa, pret, checkin):
     :param clasa: clasa avionului - string
     :param pret: pretul biletului - float
     :param checkin: verificare checkin - string
-    :return: un dictionar ce retine datele despre o rezervare a unui bilet de avion
+    :return: o tupla ce retine datele despre o rezervare a unui bilet de avion
     """
     return [id, nume, clasa, pret, checkin]
 def getId(avion):

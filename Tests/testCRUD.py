@@ -38,5 +38,6 @@ def test_getbyId():
     lista = []
     lista = adauga_rezervare("1", "Ionescu", "economy", 100, "da", lista)
     lista = adauga_rezervare("2", "Popescu", "business", 300, "nu", lista)
-
     assert getNume(getbyId("1", lista)) == "Ionescu"
+    assert getClasa(getbyId("1", lista)) == "economy"
+    assert getClasa(getbyId("2", lista)) == "business"
