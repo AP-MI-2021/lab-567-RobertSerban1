@@ -13,6 +13,9 @@ def mutare_la_clasa_superioara(nume, lista):
 
 
 def ieftinire_procentaj(percent, lista):
+    percent_str = str(percent)
+    if percent_str.isdigit() is False and percent < 0:
+        raise ValueError("Nu ati introdus o valoare valida!")
     lista_noua = []
     for avion in lista:
         if getCheckin(avion) == "da":

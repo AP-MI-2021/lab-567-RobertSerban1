@@ -12,7 +12,11 @@ def adauga_rezervare(id, nume, clasa, pret, checkin, lista):
     :param lista: o noua lista
     :return: o lista continand vechea lista + noua rezervare de bilet de avion
     """
+    if getbyId(id, lista) is not None:
+        raise ValueError("Id-ul introdus exista deja.")
     avion = creeaza_zbor_avion(id, nume, clasa, pret, checkin)
+    if pret < 0:
+        raise ValueError("Pretul nu poate fi negativ.")
     return lista + [avion]
 
 def getbyId(id, lista):
@@ -34,6 +38,8 @@ def sterge_rezervare(id, lista):
     :param lista: lista cu rezervari
     :return: o lista noua fara cea stearsa
     """
+    if getbyId(id, lista) is None:
+        raise ValueError("Id-ul introdus exista deja.")
     return [avion for avion in lista if getId(avion) != id]
 
 def modifica_rezervare(id, nume, clasa, pret, checkin, lista):
@@ -47,6 +53,8 @@ def modifica_rezervare(id, nume, clasa, pret, checkin, lista):
     :param lista: noua lista
     :return: rezervarea modificata
     """
+    if getbyId(id, lista) is None:
+        raise ValueError("Id-ul introdus exista deja.")
     listaNoua = []
     for avion in lista:
         if getId(avion) == id:
@@ -54,7 +62,10 @@ def modifica_rezervare(id, nume, clasa, pret, checkin, lista):
             listaNoua.append(rezervareNoua)
         else:
             listaNoua.append(avion)
+    if pret < 0:
+        raise ValueError("Pretul nu poate fi negativ.")
     return listaNoua
+
 
 
 

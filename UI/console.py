@@ -17,25 +17,43 @@ def printMenu():
 
 
 def ui_adaugare_rezervare(lista):
-    id = input("Dati id-ul: ")
-    nume = input("Dati numele: ")
-    clasa = input("Dati clasa: ")
-    pret = input("Dati pretul: ")
-    checkin = input("Dati checkin-ul: ")
-    return adauga_rezervare(id, nume, clasa, pret, checkin, lista)
-
+    try:
+        id = input("Dati id-ul: ")
+        nume = input("Dati numele: ")
+        clasa = input("Dati clasa: ")
+        pret = input("Dati pretul: ")
+        checkin = input("Dati checkin-ul: ")
+        return adauga_rezervare(id, nume, clasa, pret, checkin, lista)
+    except ValueError as ve:
+        print("Eroare: {}".format(ve))
+        return lista
 def uiStergeRezervare(lista):
-    id = input("Dati id-ul rezervarii de sters: ")
-    return sterge_rezervare(id, lista)
+    try:
+        id = input("Dati id-ul rezervarii de sters: ")
+        return sterge_rezervare(id, lista)
+        return lista
+    except ValueError as ve:
+        print("Eroare: {}".format(ve))
+        return lista
 
 def uiModificaRezervare(lista):
-    id = input("Dati id-ul rezervarii de modificat: ")
-    nume = input("Dati noul nume: ")
-    clasa = input("Dati noua clasa: ")
-    pret = input("Dati noul pret: ")
-    checkin = input("Dati noul checkin: ")
-    return modifica_rezervare(id, nume, clasa, pret, checkin, lista)
-
+    try:
+        id = input("Dati id-ul rezervarii de modificat: ")
+        nume = input("Dati noul nume: ")
+        clasa = input("Dati noua clasa: ")
+        pret = input("Dati noul pret: ")
+        checkin = input("Dati noul checkin: ")
+        if clasa != "economy" and clasa != "economy plus" and clasa != "business":
+            print("Eroare: Nu ati introdus o clasa valida!")
+            return lista
+        if checkin != 'da' and checkin != 'nu':
+            print("Eroare: Trebuie sa introduceti 'da'/'nu' ")
+            return lista
+        lista = modifica_rezervare(id, nume, clasa, pret, checkin, lista)
+        return lista
+    except ValueError as ve:
+        print("Eroare: {}".format(ve))
+        return lista
 def ui_mutare_la_clasa_superioara(lista):
     nume = input("Dati numele persoanei: ")
     lista = mutare_la_clasa_superioara(nume, lista)
@@ -43,22 +61,28 @@ def ui_mutare_la_clasa_superioara(lista):
 
 
 def ui_ieftinire_procentaj(lista):
-    procentaj = input("Dati procentul: ")
-    i = 0
-    string = [procentaj[i:i+len(procentaj)-1] for i in range(0, len(procentaj), len(procentaj)-1)]
-    percent = float(string[0])
-    lista = ieftinire_procentaj(percent, lista)
-    return lista
-
+    try:
+        procentaj = input("Dati procentul: ")
+        i = 0
+        string = [procentaj[i:i+len(procentaj)-1] for i in range(0, len(procentaj), len(procentaj)-1)]
+        percent = float(string[0])
+        lista = ieftinire_procentaj(percent, lista)
+        return lista
+    except ValueError as ve:
+        print("Eroare: {}".format(ve))
+        return lista
 def showAll(lista):
     for avion in lista:
         print(toString(avion))
 
 def uiCelMaiMarePret(lista):
-    rezultat = cel_mai_mare_pret_pentru_clase(lista)
-    for i in rezultat:
-        print("Pentru clasa {}, pretul maxim este {}".format(i, rezultat[i]))
-
+    try:
+        rezultat = cel_mai_mare_pret_pentru_clase(lista)
+        for i in rezultat:
+            print("Pentru clasa {}, pretul maxim este {}".format(i, rezultat[i]))
+    except ValueError as ve:
+        print("Eroare: {}".format(ve))
+        return lista
 def uiOrdonareRezervari(lista):
     showAll(ordonare_rezervari_descresc(lista))
 
