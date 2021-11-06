@@ -1,6 +1,7 @@
 from Domain.avion import getId, getClasa, getPret
 from Logic.CRUD import adauga_rezervare, getbyId
-from Logic.functionalitati import ordonare_rezervari_descresc, mutare_la_clasa_superioara, ieftinire_procentaj, cel_mai_mare_pret_pentru_clase
+from Logic.functionalitati import ordonare_rezervari_descresc, mutare_la_clasa_superioara, ieftinire_procentaj, \
+    cel_mai_mare_pret_pentru_clase, afis_sum_pret_dupa_nume
 
 
 def test_mutare_la_clasa_superioara():
@@ -40,3 +41,12 @@ def test_cel_mai_mare_pret_pentru_clase():
     rezultat = cel_mai_mare_pret_pentru_clase(lista)
     assert rezultat["economy"] == 500
     assert rezultat["economy plus"] == 600
+
+def test_afis_sum_pret_dupa_nume():
+    lista = []
+    lista = adauga_rezervare("1", "Ion", "economy", 500, "da", lista)
+    lista = adauga_rezervare("2", "Ion", "economy", 400, "da", lista)
+    lista = adauga_rezervare("3", "Ionut", "economy plus", 600, "nu", lista)
+    rezultat = afis_sum_pret_dupa_nume(lista)
+    assert rezultat["Ion"] == 900
+    assert rezultat["Ionut"] == 600

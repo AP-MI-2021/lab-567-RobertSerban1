@@ -1,7 +1,7 @@
 from Domain.avion import toString
 from Logic.CRUD import adauga_rezervare, sterge_rezervare, modifica_rezervare
 from Logic.functionalitati import ordonare_rezervari_descresc, cel_mai_mare_pret_pentru_clase, \
-    mutare_la_clasa_superioara, ieftinire_procentaj
+    mutare_la_clasa_superioara, ieftinire_procentaj, afis_sum_pret_dupa_nume
 
 
 def printMenu():
@@ -12,6 +12,7 @@ def printMenu():
     print("5. Ieftinirea tuturor rezervărilor la care s-a făcut checkin cu un procentaj citit.")
     print("6. Determinarea prețului maxim pentru fiecare clasă.")
     print("7. Ordonarea rezervărilor descrescător după preț.")
+    print("8. Ordonarea rezervărilor descrescător după preț.")
     print("a. Afisare toate rezervarile")
     print("x. Iesire")
 
@@ -86,7 +87,17 @@ def uiCelMaiMarePret(lista):
 def uiOrdonareRezervari(lista):
     showAll(ordonare_rezervari_descresc(lista))
 
+def ui_afis_sum_pret_dupa_nume(lista):
+    try:
+        rezultat = afis_sum_pret_dupa_nume(lista)
+        for i in rezultat:
+            print("Pentru numele {}, suma preturilor este {}".format(i, rezultat[i]))
+    except ValueError as ve:
+        print("Eroare: {}".format(ve))
+        return lista
+
 def runMenu(lista):
+
     while True:
         printMenu()
         optiune = input("Dati optiunea: ")
@@ -104,6 +115,8 @@ def runMenu(lista):
             lista = uiCelMaiMarePret(lista)
         elif optiune == "7":
             lista = uiOrdonareRezervari(lista)
+        elif optiune == "8":
+            lista = ui_afis_sum_pret_dupa_nume(lista)
         elif optiune == "a":
             showAll(lista)
         elif optiune == "x":

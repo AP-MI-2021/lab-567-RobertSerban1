@@ -43,5 +43,15 @@ def ordonare_rezervari_descresc(lista):
         pret = getPret(avion)
     return sorted(lista, key = lambda avion : getPret(avion), reverse = True)
 
+def afis_sum_pret_dupa_nume(lista):
+    rezultat = {}
+    for avion in lista:
+        nume = getNume(avion)
+        if nume in rezultat:
+            rezultat[nume] = rezultat[nume] + getPret(avion)
+        else:
+            rezultat[nume] = getPret(avion)
+    return rezultat
+
 
 
