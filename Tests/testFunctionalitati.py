@@ -44,9 +44,16 @@ def test_cel_mai_mare_pret_pentru_clase():
 
 def test_afis_sum_pret_dupa_nume():
     lista = []
-    lista = adauga_rezervare("1", "Ion", "economy", 500, "da", lista)
-    lista = adauga_rezervare("2", "Ion", "economy", 400, "da", lista)
-    lista = adauga_rezervare("3", "Ionut", "economy plus", 600, "nu", lista)
-    rezultat = afis_sum_pret_dupa_nume(lista)
-    assert rezultat["Ion"] == 900
-    assert rezultat["Ionut"] == 600
+    lista = adauga_rezervare("1", "a", "economy", 40.0, "da", lista)
+    lista = adauga_rezervare("2", "b", "economy", 45.0, "da", lista)
+    lista = adauga_rezervare("3", "b", "economy", 20.2, "da", lista)
+    lista = adauga_rezervare("4", "a", "economy plus", 60.0, "da", lista)
+    lista = adauga_rezervare("5", "c", "economy plus", 70.0, "da", lista)
+    lista = adauga_rezervare("6", "d", "business", 80.0, "da", lista)
+    lista = adauga_rezervare("7", "c", "business", 90.0, "nu", lista)
+    lista_sume = afis_sum_pret_dupa_nume(lista)
+    assert len(lista_sume) == 4
+    assert lista_sume[0] == ["a", 100.0]
+    assert lista_sume[1] == ["b", 65.2]
+    assert lista_sume[2] == ["c", 160.0]
+    assert lista_sume[3] == ["d", 80.0]
