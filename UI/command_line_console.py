@@ -49,7 +49,7 @@ def command_line(lista):
                         lista = ui_cl_sterge_rezervare(id, lista)
                         i += 2
                     elif str1[i] == "showall":
-                        show_all(lista)
+                        showAll(lista)
                         i += 1
         elif optiune == 'x':
             break

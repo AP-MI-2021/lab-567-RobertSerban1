@@ -39,14 +39,11 @@ def cel_mai_mare_pret_pentru_clase(lista):
     return rezultat
 
 def ordonare_rezervari_descresc(lista):
-    for avion in lista:
-        pret = getPret(avion)
-    return sorted(lista, key = lambda avion : getPret(avion), reverse = True)
-
+    return sorted(lista, reverse=True, key=getPret)
 def afis_sum_pret_dupa_nume(lista):
     nume = []
-    for rezervare in lista:
-        nume.append(getNume(rezervare))
+    for avion in lista:
+        nume.append(getNume(avion))
     no_duplicates = []
     for i in nume:
         if i not in no_duplicates:
@@ -54,11 +51,13 @@ def afis_sum_pret_dupa_nume(lista):
     sume = []
     for x in no_duplicates:
         s = 0
-        for rezervare in lista:
-            if x == getNume(rezervare):
-                s += getPret(rezervare)
+        for avion in lista:
+            if x == getNume(avion):
+                s += getPret(avion)
         sume.append([x, s])
     return sume
 
-
+def get_undo_list(lista, undoLista):
+    undoLista.append(lista)
+    return undoLista
 
